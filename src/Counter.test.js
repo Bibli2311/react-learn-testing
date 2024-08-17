@@ -1,6 +1,7 @@
 import Counter from "./Counter"
 import {render, screen} from "@testing-library/react"
 import '@testing-library/dom'
+import React from 'react';
 
 test('load and display', async () => {
 
