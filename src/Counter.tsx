@@ -1,11 +1,11 @@
 // import { useState } from 'react'
-import './App.css'
+import './Counter.css'
 
-function App() {
+function Counter() {
 
   return (
     <p>hello world</p>
   )
 }
 
-export default App
+export default Counter
