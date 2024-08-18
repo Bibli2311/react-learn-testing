@@ -111,3 +111,27 @@ anbefalte å bruke `react-jsx" for "jsx" felt i "compilerOptions" i ts config.
 
 (Dette er kanskje fordi jeg bruker `@babel/preset-react` noe som tar i bruk den mer optimaliserte måten å transpilere JSX til js med `_jsx` kall istedet for `React.createElement()`. Mer info om det her: https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
 )
+
+
+Fikk til å kjøre testen!
+
+
+### toBeINDocument()
+
+fikk error her:
+```
+ expect(...).toBeInTheDocument is not a function
+```
+
+er egentlig en del av `jest-dom` fant jeg ut her: https://stackoverflow.com/a/56557915/14736127
+
+installerte pakken:
+`npm i @testing-library/jest-dom`
+
+La til import også i test-fila:
+`npm i @testing-library/jest-dom`
+
+
+### Nyttig lenke for vscode keybindings
+
+https://stackoverflow.com/a/38978993/14736127

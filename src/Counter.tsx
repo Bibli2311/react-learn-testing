@@ -4,7 +4,7 @@ import './Counter.css'
 function Counter() {
 
   return (
-    <p>hello world</p>
+    <p></p>
   )
 }
 
