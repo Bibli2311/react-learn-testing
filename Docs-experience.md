@@ -176,3 +176,52 @@ Dette var løsningen:
         })
         .then((result) => setElectricity(result))
 ```
+
+
+### Omgjøre tester til typescript
+
+gjorde det og fikk error:
+Fikk hjelp her:
+https://stackoverflow.com/a/61107618/14736127
+
+installerte 
+- @types/jest
+- @types/node
+
+La dem til i "types" i tsconfig.
+```json
+  "compilerOptions": {
+    "types": ["node", "jest"]
+  }
+```
+
+Nå ble `describe` og `expect` gjenkjent.
+
+Men kan fortsatt ikke rendre jsx.
+Får denne error-en her:
+```shell
+src/Counter.test.ts:8:13 - error TS2749: 'Counter' refers to a value, but is being used as a type here. Did you mean 'typeof Counter'?
+```
+
+fikk løsning her:
+https://stackoverflow.com/a/64036557/14736127
+
+endret test file fra `Counter.test.ts` til `Counter.test.tsx` med "tsx".
+
+__ingen tester funnet__
+fikk denne erroren:
+```
+● Test suite failed to run
+
+    Your test suite must contain at least one test.
+```
+
+Men ble løst gjennom å lese docs her:
+https://jestjs.io/docs/configuration#testmatch-arraystring
+```
+By default it looks for .js, .jsx, .ts and .tsx files inside of __tests__ folders
+```
+
+Så jeg flyttet test filen til `__tests__` mappe.
+
+

@@ -1,11 +1,11 @@
-import Counter from "./Counter"
+import Counter from "../Counter"
 import {render, screen} from "@testing-library/react"
 import '@testing-library/dom'
-import React from 'react';
 import '@testing-library/jest-dom'
 
-test('load and display', async () => {
+describe('load and display', () => {
 
+    it('Various tests', async () => {
     render(<Counter></Counter>)
 
     expect(
@@ -19,4 +19,6 @@ test('load and display', async () => {
     expect(
         screen.getByTestId(/ptag/i)
     ).toBeInTheDocument()
+
+    })
 })
