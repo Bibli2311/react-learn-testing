@@ -135,3 +135,44 @@ La til import også i test-fila:
 ### Nyttig lenke for vscode keybindings
 
 https://stackoverflow.com/a/38978993/14736127
+
+### Viser ikke elektrisitetsprisen selv om console.log gjør det:
+
+```ts
+function APIComponent() {
+    const url = "https://www.hvakosterstrommen.no/api/v1/prices/2024/08-18_NO5.json"
+    const [electricity, setElectricity] = useState('')
+    useEffect(() => {
+        fetch(url)
+        .then((res) => res.json())
+        .then((jsonResult) => {
+            console.log(jsonResult[0]['NOK_per_kWh'])
+            setElectricity(jsonResult[0]["NOK_per_kwh"]) // this was the error, NOK_per_kwh not NOK_per_kWh
+        })
+    }, [])
+    useEffect(() => {
+        console.log("electricity: " + electricity)
+    }, [electricity])
+    return(
+        <div>
+            <p>
+                { electricity}
+            </p>
+        </div>
+    )
+}
+export default APIComponent
+```
+
+Dette var løsningen:
+```ts
+ useEffect(() => {
+        fetch(url)
+        .then((res) => res.json())
+        .then((jsonResult) => {
+            console.log(jsonResult[0]['NOK_per_kWh'])
+            console.log(typeof jsonResult[0]['NOK_per_kWh'])
+            return jsonResult[0]['NOK_per_kWh']
+        })
+        .then((result) => setElectricity(result))
+```
