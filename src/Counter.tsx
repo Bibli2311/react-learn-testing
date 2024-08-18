@@ -1,10 +1,17 @@
 // import { useState } from 'react'
 import './Counter.css'
 
+const label = "counterInput"
+
 function Counter() {
 
   return (
-    <p></p>
+    <>    
+    <label htmlFor={label}>counter text</label>
+    <input placeholder='counter number' type="text" id={label}></input>
+    <p data-testid="pTag">Counter</p>
+   </>
+
   )
 }
 

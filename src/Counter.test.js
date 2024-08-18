@@ -8,7 +8,15 @@ test('load and display', async () => {
 
     render(<Counter></Counter>)
 
-    expect(screen.getByText("hello world")).toBeInTheDocument()
+    expect(
+        screen.getByLabelText(/counter/)
+    ).toBeInTheDocument()
 
-//    expect(screen.findByText("hello world")).toHaveTextContent('hello world')
+    expect(
+        screen.getByPlaceholderText(/counter number/)
+    ).toBeInTheDocument()
+
+    expect(
+        screen.getByTestId(/ptag/i)
+    ).toBeInTheDocument()
 })
