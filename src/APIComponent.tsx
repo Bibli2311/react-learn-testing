@@ -16,7 +16,7 @@ function APIComponent() {
     return(
         <div>
             <p>
-                { electricity ? electricity : "Loading electricity price"}
+                Norwegian price: { electricity ? electricity : "Loading electricity price"}
             </p>
         </div>
     )
